@@ -37,7 +37,7 @@ public class AuthController {
 
       return ResponseEntity.ok(new TokenDTO(token, "Bearer"));
     } catch (AuthenticationException e) {
-      return ResponseEntity.badRequest().build();
+      return ResponseEntity.badRequest().body(e.getMessage());
     }
   }
 }

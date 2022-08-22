@@ -56,7 +56,7 @@ public class User implements UserDetails{
           name = "role_id", referencedColumnName = "id", table = "TB_ROLES"))
   private List<Role> roles = new ArrayList<>();
 
-  @OneToMany(cascade = CascadeType.PERSIST)
+  @OneToMany(mappedBy = "user",cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
   private List<Message> messages = new ArrayList<>();
 
   @CreationTimestamp
